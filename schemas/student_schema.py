@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from .group_schema import GroupBase
 
 
@@ -17,3 +17,8 @@ class Student(StudentBase):
 
     class Config:
         from_attributes = True
+
+
+class StudentUpdate(BaseModel):
+    name: Optional[str] = None
+    group_ids: Optional[List[int]] = None
